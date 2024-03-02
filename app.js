@@ -1,5 +1,6 @@
 const express = require('express');
 const mysql = require('mysql');
+const cors = require('cors');
 
 // Create a MySQL connection
 const connection = mysql.createConnection({
@@ -21,6 +22,9 @@ connection.connect((err) => {
 
 
 const app = express();
+
+// Use the cors middleware
+app.use(cors());
 
 // Define a route to fetch student data
 app.get('/students', (req, res) => {
